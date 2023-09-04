@@ -7,10 +7,15 @@
         .transaksi-container {
             max-width: 600px;
             margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #ccc;
         }
         .transaksi-heading {
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            text-align: center;
         }
         .transaksi-form {
             padding: 10px;
@@ -29,7 +34,7 @@
 </head>
 <body>
     <div class="container mt-4 transaksi-container">
-        <h1 class="text-center">Form Transaksi</h1>
+        <h1 class="transaksi-heading">Form Transaksi</h1>
         <?php
         session_start();
 
@@ -66,7 +71,7 @@
             echo "</div>";
             echo "</form>";
         } else {
-            echo "Jumlah pesanan tidak valid.";
+            echo "<p class='text-center'>Jumlah pesanan tidak valid.</p>";
         }
         ?>
     </div>

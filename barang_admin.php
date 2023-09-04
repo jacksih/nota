@@ -16,6 +16,12 @@
         <!-- Main content -->
         <div class="col-md-8">
             <h2>Daftar Barang</h2>
+            <form method="get" action="">
+                <div class="form-group d-flex ">
+                    <input type="text" class="form-control mb-3" name="search" placeholder="Cari Barang">
+                    <button type="submit" class="btn btn-primary">Cari</button>
+                </div>
+            </form>
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -39,8 +45,21 @@
                         die("Koneksi gagal: " . $conn->connect_error);
                     }
 
+                    $page = isset($_GET['page']) ? $_GET['page'] : 1;
+                    $limit = 10;
+                    $offset = ($page - 1) * $limit;
+
                     // Query untuk mendapatkan data barang dari tabel "barang"
                     $sql = "SELECT * FROM barang";
+                    
+                    // Cek jika ada pencarian
+                    if (isset($_GET['search']) && !empty($_GET['search'])) {
+                        $search = $_GET['search'];
+                        $sql .= " WHERE nama_barang LIKE '%$search%'";
+                    }
+                    
+                    $sql .= " LIMIT $limit OFFSET $offset";
+
                     $result = $conn->query($sql);
 
                     if ($result->num_rows > 0) {
@@ -63,6 +82,32 @@
                     ?>
                 </tbody>
             </table>
+            
+            <?php
+            // Pagination
+            $conn = new mysqli($servername, $username, $password, $dbname);
+            $sql = "SELECT COUNT(*) as total FROM barang";
+            
+            // Cek jika ada pencarian
+            if (isset($_GET['search']) && !empty($_GET['search'])) {
+                $search = $_GET['search'];
+                $sql .= " WHERE nama_barang LIKE '%$search%'";
+            }
+            
+            $result = $conn->query($sql);
+            $row = $result->fetch_assoc();
+            $total_records = $row['total'];
+            $total_pages = ceil($total_records / $limit);
+            
+            echo "<ul class='pagination'>";
+            for ($i = 1; $i <= $total_pages; $i++) {
+                echo "<li class='page-item'><a class='page-link' href='?page=$i'>" . $i . "</a></li>";
+            }
+            echo "</ul>";
+            
+            $conn->close();
+            ?>
+            
             <a href="tambah_barang.php" class="btn btn-success">Tambah Barang Baru</a>
         </div>
     </div>

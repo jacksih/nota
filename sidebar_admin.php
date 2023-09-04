@@ -2,7 +2,7 @@
     <div class="position-sticky">
         <ul class="nav flex-column">
             <li class="nav-item mt-3 mb-3">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="admin_dashboard.php">
                     <i class="bi bi-box"></i> Dashboard
                 </a>
             </li>
@@ -12,13 +12,8 @@
                 </a>
             </li>
             <li class="nav-item mt-3 mb-3">
-                <a class="nav-link" href="#">
+                <a class="nav-link" href="daftar_nota.php">
                     <i class="bi bi-file-earmark"></i> Nota
-                </a>
-            </li>
-            <li class="nav-item mt-3 mb-3">
-                <a class="nav-link" href="#">
-                    <i class="bi bi-person"></i> Profile Admin
                 </a>
             </li>
             <li class="nav-item mt-3 mb-3">

@@ -8,11 +8,16 @@
             font-weight: bold;
         }
         .form-container {
-            max-width: 500px;
+            max-width: 600px;
             margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px #ccc;
         }
         .form-submit-btn {
             margin-top: 15px;
+            text-align: center;
         }
     </style>
 </head>
@@ -20,10 +25,10 @@
     <?php include 'navbar_user.php'; ?>
 
     <div class="container mt-4 form-container">
-        <h1>Form Nota</h1>
+        <h1 class="text-center">Form Nota</h1>
         <form id="notaForm" method="post" action="simpan_nota.php">
             <div class="row">
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label class="form-label" for="tanggal">Tanggal:</label>
                         <input type="date" class="form-control" id="tanggal" name="tanggal" required>
@@ -56,7 +61,7 @@
                         <input type="text" class="form-control" id="namaPenerima" name="namaPenerima" required>
                     </div>
                 </div>
-                <div class="col-md-6">
+                <div class="col-md-6 col-sm-12">
                     <div class="mb-3">
                         <label class="form-label" for="desa">Desa:</label>
                         <input type="text" class="form-control" id="desa" name="desa" required>

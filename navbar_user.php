@@ -2,7 +2,7 @@
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-xl ">
-    <a class="navbar-brand" href="#">Logo</a>
+  <a class="navbar-brand" href="user_dashboard.php"><img src="./Assets/logodj.png" alt="" style=" height: 2rem"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>

@@ -6,20 +6,57 @@
     <!-- CSS dan lainnya di sini -->
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-
 </head>
 <body>
 
-
     <?php include 'navbar_user.php'; ?>
 
+    <div class="container mt-4">
+        <h2>Daftar Barang</h2>
+        <!-- Tambahkan tabel atau daftar barang dari database di sini -->
+        <div class="mt-3">
+            <a href="buat_nota.php" class="btn btn-success">Buat Nota</a>
+            <a href="daftar_nota.php" class="btn btn-info">Daftar Nota</a>
+        </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Nama Barang</th>
+                    <th>Harga</th>
+                    <th>Aksi</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                include 'koneksi.php';
 
-    <h1>Selamat datang, User!</h1>
-    <p>Ini adalah halaman dashboard untuk pengguna (user). Anda dapat melihat dan mengelola konten pribadi Anda di sini.</p>
-    <!-- Tambahkan konten user di sini -->
+                // Query untuk mengambil data barang dari database
+                $sql = "SELECT * FROM barang"; // Sesuaikan dengan nama tabel Anda
+                $result = mysqli_query($connection, $sql);
 
-   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
+                if ($result) {
+                    while ($row = mysqli_fetch_assoc($result)) {
+                        echo "<tr>";
+                        echo "<td>" . $row["nama_barang"] . "</td>";
+                        echo "<td>Rp " . number_format($row["harga"], 0, ",", ".") . "</td>";
+                        echo "<td><button class='btn btn-primary'>Beli</button></td>";
+                        echo "</tr>";
+                    }
+                    mysqli_free_result($result);
+                } else {
+                    echo "<tr><td colspan='3'>Tidak ada data barang.</td></tr>";
+                }
 
+                // Tutup koneksi ke database
+                mysqli_close($connection);
+                ?>
+            </tbody>
+        </table>
+
+        
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.min.js" integrity="sha384-Rx+T1VzGupg4BHQYs2gCW9It+akI2MM/mndMCy36UVfodzcJcF0GGLxZIzObiEfa" crossorigin="anonymous"></script>
 </body>
 </html>
