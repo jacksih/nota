@@ -8,18 +8,30 @@
     integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
   <link href="styles.css" rel="stylesheet">
 </head>
-
+<style>
+        /* Tambahkan gaya CSS ini untuk latar belakang */
+        body, footer {
+            background-image: linear-gradient(120deg, #0f0122 0%, #1c1b3a 100%);
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            
+        }
+    </style>
 <body>
   <?php include 'navbar.php'; ?>
   <!-- Konten halaman utama lainnya -->
   <div class="container-xl my-5 morpheus-den-gradient color-block mb-3 mx-auto rounded-circle z-depth-1-half">
     <div class="row">
-      <div class="col-md-6">
+    <div class="col-md-6 text-center">
+        <img src="./Assets/logodj.png" alt="Gambar" class="img-fluid mt-5">
+      </div>                            
+    <div class="col-md-6">
         <h2 class="fw-bold mb-4">PT DARMAJAYA DIGITAL SOLUSI</h2>
-        <div class="card shadow bg-secondary border-primary">
+        <div class="card shadow  border-primary" style="background-color: #1c1b3a">
           <div class="card-body">
-            <h4 class="fw-bold text-center mb-3">Info Singkat DJCorp</h4>
-            <p>
+            <h4 class="fw-bold text-center text-light mb-3">Info Singkat DJCorp</h4>
+            <p class="text-light">
               Lahir dari sekumpulan Mahasiswa, Praktisi, Akademisi dan Periset yang mengubah berbagai hasil riset,
               jurnal menjadi produk komersil di Bidang Teknologi Informasi. Berdiri sejak 2016 merupakan bagian dari
               Institut Informatika
@@ -31,9 +43,7 @@
           </div>
         </div>
       </div>
-      <div class="col-md-6 text-center">
-        <img src="./Assets/logodj.png" alt="Gambar" class="img-fluid mt-5">
-      </div>
+      
     </div>
   </div>
 
@@ -107,7 +117,7 @@
   </div>
 
   <!-- Footer -->
-  <footer class="footer text-dark mt-4 py-3 bg-info">
+  <footer class="footer text-light mt-4 py-3 bg-info">
     <div class="container">
       <div class="row">
         <div class="col-md-4">
